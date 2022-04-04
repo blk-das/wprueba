@@ -38129,18 +38129,18 @@ a.u-link.u-text-hover-grey-90:hover {
               <div class="u-bottom-left-radius-50 u-container-style u-custom-color-1 u-layout-cell u-shape-round u-size-31 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
                   <h4 class="u-text u-text-default u-text-3">I​nversión</h4>
-                  <br>
-                  <h4 id="capital"  class="u-text u-text-custom-color-3 u-text-default u-text-4"></h4>
+           
+                  <h4 id="capital"  class="u-text u-text-custom-color-3 u-text-default u-text-4">80.000.000</h4>
                   <h4   class="u-text u-text-default u-text-5" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""> Tasa</h4>
-                  <br>
-                  <h4 id="EAA"  class="u-text u-text-custom-color-3 u-text-default u-text-6"></h4>
+             
+                  <h4 id="EAA"  class="u-text u-text-custom-color-3 u-text-default u-text-6">6%</h4>
                   <h2 class="u-text u-text-default u-text-7" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""> promedio</h2>
-                  <br>
-                  <h4 id="años"  class="u-text u-text-custom-color-3 u-text-default u-text-8"></h4>
+            
+                  <h4 id="años"  class="u-text u-text-custom-color-3 u-text-default u-text-8">12 meses</h4>
                   <h4 class="u-text u-text-default u-text-9">Plazo</h4>
                   <p class="u-text u-text-default u-text-10">La rentabilidad proyectada es de</p>
-                  <br>
-                  <h4  id="años" class="u-text u-text-custom-color-3 u-text-default u-text-11"> </h4>
+              
+                  <h4  id="años" class="u-text u-text-custom-color-3 u-text-default u-text-11">$5,400,000 </h4>
                   <p class="u-text u-text-default u-text-12">si no se realizan retiros durante el año.</p>
 
 
@@ -38283,7 +38283,54 @@ a.u-link.u-text-hover-grey-90:hover {
 <!-- datos -->
 
 
+
+
 <script>
+function formulas(params) {
+var  result ;
+var periodico = 400;
+var años = 38    ;
+var meses = 0  ;
+var plazo;
+var Na = 0.643;
+var VF= 11.00
+var ipc = no ;
+var capital= 0 ;
+var EAA = 8.0;
+
+if (ipc == "si") {
+    ipc = 3.5;
+} else {
+    ipc = 0;
+}
+
+periodico =+periodico;
+plazo = (años* 12)+ meses;
+capital = ipc(plazo<=12)(plazo*periodico)+0+(periodico (1*ipc)*plazo);
+var rentabilidad = VF-capital;
+var beneficio = meses* plazo;
+var ValorFuturo = VF(plazo+Na-0 ) ;  
+
+
+
+
+
+
+
+
+
+}
+
+
+</script>
+
+<script>
+
+
+
+
+
+
 window.addEventListener('DOMContentLoaded', (event) => {
 console.log('DOm Fully loaded and parsed');
 
@@ -38307,12 +38354,11 @@ document.getElementById('capital').innerText = window.params.capital;
     // Obtener una referencia al elemento canvas del DOM
 const $grafica = document.querySelector("#grafica");
 // Las etiquetas son las que van en el eje X. 
-const etiquetas = ["Años"]
+const etiquetas = ["enero, febrero, marzo, abril"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosVentas2020 = {
-    label: "Rentabilidad",
-   
-    data: [5000, 1500, 8000, 5102], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    label: "Rentabilidad, plazo",
+     data: [5000, 1500, 8000, 5102], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
     borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
    
